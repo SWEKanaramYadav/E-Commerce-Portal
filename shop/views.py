@@ -18,24 +18,32 @@ def index(request):
         n = len(prod)
         nslides = n // 4 + ceil((n / 4) - (n // 4))
         allprods.append([prod, range(1, nslides), nslides])
-    #params = {'no_of_slide':nslides,'range':range(1,nslides),'product':products}
-    params = {'allprods':allprods}
+    # params = {'no_of_slide':nslides,'range':range(1,nslides),'product':products}
+    params = {'allprods': allprods}
     return render(request, 'shop/index.html', params)
+
 
 def about(request):
     return render(request, 'shop/about.html')
 
+
 def contact(request):
-    return HttpResponse("Contact Us page")
+    return render(request, 'shop/contact.html')
+
 
 def tracker(request):
-    return HttpResponse("TrackingStatus page")
+    return render(request, 'shop/tracker.html')
 
-def productview(request):
-    return HttpResponse("ProductView page")
+
+def productview(request, myid):
+    # product fatch by Id
+    product = Product.objects.filter(id=myid)
+    return render(request, 'shop/prodview.html',{'product' : product[0]})
+
 
 def search(request):
-    return HttpResponse("Search page")
+    return render(request, 'shop/search.html')
+
 
 def checkout(request):
-    return HttpResponse("checkout page")
+    return render(request, 'shop/checkout.html')

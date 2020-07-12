@@ -1,4 +1,47 @@
 {% extends 'shop/basic.html'%}
 
-{% block title %} Title of About {% endblock %}
-{% block body %} <h1>This is body</h1>{% endblock %}
+{% block title %} About Us - My Cart {% endblock %}
+{% block body %}
+
+<main role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">My Cart</h1>
+          <p>My Cart is an Indian e-commerce company based in Bangalore, Karnataka, India. It was founded by Kanaram yadav in 2007. The company initially focused on book sales, before expanding into other product categories such as consumer electronics, fashion, home essentials & groceries, and lifestyle products.</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Example row of columns -->
+          <h4>Our Team</h4><hr/>
+        <div class="row">
+          <div class="col-md-4">
+            <img src="/media/shop/images/user.jpg" width="220px" height="250px">
+            <h2>Mr. Kanaram</h2>
+            <p>CEO & Founder</p>
+            <p><a class="btn btn-secondary" href="https://linkedin.com/in/imkanaram" role="button">Linkedin Profile &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <img src="/media/shop/images/user.jpg" width="220px" height="250px">
+            <h2>Mr. Vaibhav</h2>
+            <p>Product Manager</p>
+            <p><a class="btn btn-secondary" href="https://linkedin.com/in/imkanaram" role="button">Linkedin Profile &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <img src="/media/shop/images/user.jpg" width="220px" height="250px">
+            <h2>Mr. Ankit</h2>
+            <p>Security Manager</p>
+            <p><a class="btn btn-secondary" href="https://linkedin.com/in/imkanaram" role="button">Linkedin Profile &raquo;</a></p>
+          </div>
+        </div>
+
+        <hr>
+
+      </div> <!-- /container -->
+
+    </main>
+
+{% endblock %}

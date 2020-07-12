@@ -11,8 +11,8 @@
            }
 
           .col-md-3 img{
-          max-width: 227px;
-          height: 242px;
+          width: 200px;
+          height: 220px;
           }
 
           body .carousel-indicator li{
@@ -32,6 +32,7 @@
           .carousel-control-next{
           top: auto;
           bottom: auto;
+          padding-top:222px;
           }
            body .no-padding{
            padding-left: 0,
@@ -44,7 +45,8 @@
 <div class="container">
     {% for product, range, nslides in allprods%}
   <h5 class="my-4">Flash Sale On {{product.0.category}} - Recommended Items</h5>
-  <div id="demo{{forloop.counter}}" class="carousel slide my-3" data-ride="carousel">
+  <div class="row">
+  <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
   <ul class="carousel-indicators">
     <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
 
@@ -61,8 +63,9 @@
           <img src="/media/{{i.image}}" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">{{i.product_name}}</h5>
-            <p class="card-text">{{i.product_desc}}</p>
+            <p class="card-text">{{i.product_desc|slice:"0:50"}}...</p>
             <button id="pr{{i.id}}" class="btn btn-primary cart">Add to Cart</button>
+            <a href="/shop/products/{{i.id}}"> <button id="dv{{i.id}}" class="btn btn-primary cart">QuickView</button></a>
           </div>
         </div>
       </div>
@@ -81,9 +84,9 @@
   <a class="carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
     <span class="carousel-control-next-icon"></span>
   </a>
-
+</div>
 {% endfor %}
-    </div>
+</div>
 {% endblock %}
 
 #cart Javascript
@@ -97,6 +100,8 @@
     else
     {
         cart = JSON.parse(localStorage.getItem('cart'));
+        document.getElementById('cart').innerHTML = Object.keys(cart).length;
+
     }
     //jquery
     $('.cart').click(function () {
@@ -112,7 +117,10 @@
         cart[idstr] = 1;
     }
     console.log(cart);
-    localStorage.setItem('cart', JSON.stringify(cart))
+    localStorage.setItem('cart', JSON.stringify(cart));
+    document.getElementById('cart').innerHTML = Object.keys(cart).length;
     });
+    $('#popcart').popover()
+    document.getElementById("popcart").setAttribute('data-content','<h5>Cart</h5>')
 </script>
 {% endblock %}
