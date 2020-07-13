@@ -1,4 +1,64 @@
 {% extends 'shop/basic.html'%}
 
 {% block title %} Contact Us - My Cart {% endblock %}
-{% block body %} <h1>This is contact Us Page</h1>{% endblock %}
+{% block body %}
+<div class="main-container container-fluid my-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-2">
+<!--           CONTACT FORM IS HERE-->
+                <h2>Contact me!</h2>
+                <form action="/shop/contact/" method='post'>{% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="name" class="form-control" id="name" placeholder="Enter your Name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" class="form-control" id="cemail" placeholder="Enter your Email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Your Phone Number (with country code)</label>
+                        <input type="text" class="form-control" id="phone" placeholder="Enter your Phone Number"
+                            name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="desc">Describe what you want to contact me for here</label>
+                        <textarea type="text" class="form-control" id="desc" placeholder="Your message" name="desc"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success mt-2" >Submit</button>
+                </form>
+
+        </div>
+        <hr>
+
+        <!-- SIDE WIDGET IS HERE -->
+<!--        <div class="col-md-4">-->
+<!--            <div class="col-md-8">-->
+<!--                <div class="my-4">-->
+<!--                    <form action="/search" method='get'>-->
+<!--                        <h4>Search</h4>-->
+<!--                        <div>-->
+<!--                            <input type="text" name='query' class="form-control">-->
+<!--                            <button type='submit' class="btn btn-danger mt-2 ">Search</button>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--                <div class="my-4">-->
+<!--                    <h4>Subscribe To My YouTube Channels</h4>-->
+<!--                    <div class="my-2">-->
+<!--                        <div class="g-ytsubscribe" data-channelid="UC7btqG2Ww0_2LwuQxpvo2HQ" data-layout="full" data-count="default"></div><br>-->
+<!--                    </div>-->
+<!--                    <div class="my-2">-->
+<!--                        <div class="g-ytsubscribe" data-channelid="UCeVMnSShP_Iviwkknt83cww" data-layout="full" data-count="default"></div><br>-->
+<!--                    </div>-->
+<!--                    <div class="my-2">-->
+<!--                        <div class="g-ytsubscribe" data-channelid="UCa5UDzFzpIjJ1VSxCSlQP_g" data-layout="full" data-count="default"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--        </div>-->
+    </div>
+</div>
+
+{% endblock %}
