@@ -62,3 +62,12 @@
 </div>
 
 {% endblock %}
+{%block js%}
+
+{% if thank %}
+alert('Thanks You!. Your Mail has been Send. We will Contact Soon');
+localStorage.clear();
+document.location = "/shop";
+{% endif %}
+
+{% endblock %}
