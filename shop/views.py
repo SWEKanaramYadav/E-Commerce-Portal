@@ -32,11 +32,11 @@ def contact(request):
         contact = Contact(name=name, email=email, phone=phone, desc=desc)
         contact.save()
         thank = True
-    return render(request, 'shop/contact.html', {'thank' : thank})
+    return render(request, 'shop/contact.html', {'thank': thank})
 
 
 def tracker(request):
-    if request.method=="POST":
+    if request.method == "POST":
         orderId = request.POST.get('orderId', '')
         email = request.POST.get('email', '')
         try:
@@ -84,4 +84,4 @@ def checkout(request):
         thank = True
         id = order.order_id
         return render(request, 'shop/checkout.html',{'thank':thank, 'id':id})
-    return render(request, 'shop/checkout1.html')
+    return render(request, 'shop/checkout.html')
